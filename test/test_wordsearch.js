@@ -1,6 +1,5 @@
 const chai = require('chai');
 const assert = chai.assert;
-
 const wordSearch = require('../wordsearch.js')
 
 describe("#wordSearch()", function() {
@@ -32,6 +31,38 @@ describe("#wordSearch()", function() {
       ['O', 'D', 'C', 'A', 'K', 'U', 'A', 'S'],
       ['E', 'Z', 'K', 'F', 'Q', 'U', 'A', 'L'],
     ], 'SEINFELD')
+
+    assert.isTrue(result);
+  });
+
+  it("should return true if the word is present but backwards vertically", () => {
+    const result = wordSearch([
+      ['A', 'S', 'E', 'I', 'Q', 'U', 'A', 'L'],
+      ['S', 'E', 'U', 'N', 'F', 'E', 'L', 'D'],
+      ['Y', 'T', 'C', 'F', 'Q', 'U', 'A', 'L'],
+      ['H', 'N', 'J', 'T', 'E', 'V', 'R', 'E'],
+      ['W', 'F', 'C', 'S', 'Y', 'E', 'R', 'F'],
+      ['B', 'E', 'R', 'E', 'N', 'E', 'Y', 'N'],
+      ['U', 'L', 'T', 'W', 'A', 'P', 'A', 'I'],
+      ['D', 'L', 'E', 'F', 'N', 'p', 'E', 'E'],
+      ['E', 'Z', 'K', 'F', 'Q', 'U', 'A', 'S'],
+    ], 'SEINFELD');
+
+    assert.isTrue(result);
+  });
+
+  it("should return true if the word is present but backwards horizontally", () => {
+    const result = wordSearch([
+      ['A', 'S', 'E', 'I', 'Q', 'U', 'A', 'L'],
+      ['S', 'E', 'U', 'N', 'F', 'E', 'L', 'D'],
+      ['Y', 'T', 'C', 'F', 'Q', 'U', 'A', 'L'],
+      ['H', 'N', 'J', 'T', 'E', 'V', 'R', 'E'],
+      ['W', 'F', 'C', 'S', 'Y', 'E', 'R', 'F'],
+      ['B', 'E', 'R', 'E', 'N', 'E', 'Y', 'F'],
+      ['U', 'L', 'T', 'W', 'A', 'P', 'A', 'I'],
+      ['D', 'L', 'E', 'F', 'N', 'I', 'E', 'S'],
+      ['E', 'Z', 'K', 'F', 'Q', 'U', 'A', 'S'],
+    ], 'SEINFELD');
 
     assert.isTrue(result);
   });
